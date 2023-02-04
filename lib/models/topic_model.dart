@@ -55,7 +55,7 @@ art subtopics:
   'Pottery'
   'Painting'
 
-  Please not that in question bellow you will
+  Please not that in question below you will
   have to write qestions for al the art subjects to 
   get familiar with the data models.
   
