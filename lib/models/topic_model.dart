@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:ionicons/ionicons.dart';
+
 class TopicModel {
   final List<QuestionModel>? questionModel;
   final String? subject;
@@ -56,10 +59,39 @@ art subtopics:
   'Painting'
 
   Please not that in question below you will
-  have to write qestions for al the art subjects to 
+  have to write questions for al the art subjects to
   get familiar with the data models.
   
 */
+
+class Subjects {
+  final String subject;
+  final List<String> subTopic;
+  final IconData? icon;
+  final Color? color;
+  final Color? iconColor;
+
+  Subjects(
+    this.subject,
+    this.subTopic,
+    this.icon,
+    this.color,
+    this.iconColor,
+  );
+}
+
+List<Subjects> subjects = [
+  Subjects(
+      'Computer',
+      ['UI/UX', 'Flutter', 'JavaScript'],
+      Ionicons.laptop_outline,
+      const Color(0xffFFF4DB),
+      const Color(0xffFFBD6C)),
+  Subjects('Art', ['Painting', 'Pottery', 'Fine Art'], CupertinoIcons.burn,
+      const Color(0xffE3FEF0), const Color(0xff49D68C)),
+  Subjects('Science', ['Anatomy', 'Physiology', 'Medical Microbiology'],
+      Ionicons.flask_outline, const Color(0xffEDECFA), const Color(0xffA5A1C8)),
+];
 
 List<TopicModel> questions = [
   //ui/ux
