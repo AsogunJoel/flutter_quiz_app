@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color(0xff8881B2),
         ),
-        textTheme: GoogleFonts.lobsterTextTheme(
+        textTheme: GoogleFonts.alefTextTheme(
           Theme.of(context).textTheme,
         ),
       ),

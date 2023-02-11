@@ -64,14 +64,14 @@ art subtopics:
   
 */
 
-class Subjects {
+class SubjectsModel {
   final String subject;
   final List<String> subTopic;
   final IconData? icon;
   final Color? color;
   final Color? iconColor;
 
-  Subjects(
+  SubjectsModel(
     this.subject,
     this.subTopic,
     this.icon,
@@ -80,17 +80,29 @@ class Subjects {
   );
 }
 
-List<Subjects> subjects = [
-  Subjects(
-      'Computer',
-      ['UI/UX', 'Flutter', 'JavaScript'],
-      Ionicons.laptop_outline,
-      const Color(0xffFFF4DB),
-      const Color(0xffFFBD6C)),
-  Subjects('Art', ['Painting', 'Pottery', 'Fine Art'], CupertinoIcons.burn,
-      const Color(0xffE3FEF0), const Color(0xff49D68C)),
-  Subjects('Science', ['Anatomy', 'Physiology', 'Medical Microbiology'],
-      Ionicons.flask_outline, const Color(0xffEDECFA), const Color(0xffA5A1C8)),
+/* RECENT QUIZ SUBJECTS */
+List<SubjectsModel> subjects = [
+  SubjectsModel(
+    'Computer',
+    ['UI/UX', 'Flutter', 'JavaScript'],
+    Ionicons.laptop_outline,
+    const Color(0xffFFF4DB),
+    const Color(0xffFFBD6C),
+  ),
+  SubjectsModel(
+    'Artistry',
+    ['Painting', 'Pottery', 'Fine Art'],
+    CupertinoIcons.burn,
+    const Color(0xffE3FEF0),
+    const Color(0xff49D68C),
+  ),
+  SubjectsModel(
+    'Science',
+    ['Anatomy', 'Physiology', 'Medical Microbiology'],
+    Ionicons.flask_outline,
+    const Color(0xffEDECFA),
+    const Color(0xffA5A1C8),
+  ),
 ];
 
 List<TopicModel> questions = [
