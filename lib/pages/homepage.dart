@@ -18,32 +18,32 @@ class _HomePageState extends State<HomePage> {
   PageController pageController = PageController();
 
   // CHANGING BOTTOM LINE
-  double changingLinePosition() {
-    switch (currentPage) {
-      case 0:
-        return 10;
-      case 1:
-        return 88;
-      case 2:
-        return 165;
-      default:
-        return 0;
-    }
-  }
+  // double changingLinePosition() {
+  //   switch (currentPage) {
+  //     case 0:
+  //       return 10;
+  //     case 1:
+  //       return 88;
+  //     case 2:
+  //       return 165;
+  //     default:
+  //       return 0;
+  //   }
+  // }
 
   //
-  double changingContainerSize() {
-    switch (currentPage) {
-      case 0:
-        return 80;
-      case 1:
-        return 65;
-      case 2:
-        return 60;
-      default:
-        return 0;
-    }
-  }
+  // double changingContainerSize() {
+  //   switch (currentPage) {
+  //     case 0:
+  //       return 60;
+  //     case 1:
+  //       return 60;
+  //     case 2:
+  //       return 60;
+  //     default:
+  //       return 0;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +69,13 @@ class _HomePageState extends State<HomePage> {
                     left: 0,
                     top: 0,
                     right: 0,
-                    child: SizedBox(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 5,
+                      ),
                       width: size.width,
-                      height: size.height * 0.04,
+                      height: size.height * 0.045,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         physics: const BouncingScrollPhysics(),
@@ -80,72 +84,76 @@ class _HomePageState extends State<HomePage> {
                           onTap: () => setState(() {
                             currentPage = index;
                           }),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                left: currentPage == 0 ? 30 : 23, top: 7),
-                            child: Text(
-                              subjects[index].subject,
-                              style: TextStyle(
-                                fontSize: currentPage == index ? 16 : 14,
-                                fontWeight: currentPage == index
-                                    ? FontWeight.w500
-                                    : FontWeight.w300,
-                              ),
+                          child: Container(
+                            // duration: const Duration(milliseconds: 300),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 15,
+                            ),
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    subjects[index].subject,
+                                    style: TextStyle(
+                                      fontSize: currentPage == index ? 16 : 14,
+                                      fontWeight: currentPage == index
+                                          ? FontWeight.w500
+                                          : FontWeight.w300,
+                                    ),
+                                  ),
+                                ),
+                                AnimatedContainer(
+                                  duration: const Duration(milliseconds: 200),
+                                  height: currentPage == index ? 5 : 0,
+                                  width: 60,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xff8981B3),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                )
+                              ],
                             ),
                           ),
                         ),
                       ),
                     ),
                   ),
-
-                  //
-                  AnimatedPositioned(
-                    bottom: 0,
-                    left: changingLinePosition(),
-                    curve: Curves.fastLinearToSlowEaseIn,
-                    duration: const Duration(milliseconds: 300),
-                    child: AnimatedContainer(
-                      margin: const EdgeInsets.only(left: 17),
-                      duration: const Duration(milliseconds: 500),
-                      height: size.height * 0.008,
-                      width: changingContainerSize(),
-                      decoration: BoxDecoration(
-                        color: const Color(0xff8981B3),
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                  )
                 ],
               ),
             ),
-            const SizedBox(height: 20),
+            // const SizedBox(height: 20),
             // const BuildHorizontalSlide(),
-            Text(
-              '$currentPage Quiz',
-              style: const TextStyle(fontSize: 20),
-            ),
-
             /* MAIN BODY SECTION */
             Expanded(
-              child: ListView.builder(
+              child: ListView.separated(
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 10,
+                ),
                 shrinkWrap: true,
                 itemCount: subjects.length,
                 scrollDirection: Axis.vertical,
                 physics: const BouncingScrollPhysics(),
-                padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
-                itemBuilder: (BuildContext context, int currentPage) => Card(
-                  // elevation: currentCard == index ? 4 : 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    side: BorderSide(
-                      color: currentPage == currentPage
+                padding: const EdgeInsets.all(20),
+                itemBuilder: (BuildContext context, int index) =>
+                    AnimatedContainer(
+                  duration: const Duration(milliseconds: 200),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: currentPage == index
                           ? const Color(0xff8881B2)
                           : Colors.white54,
                       width: 3,
                     ),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  child: RecentQuizCardWidget(
-                    subjectsModel: subjects[currentPage],
+                  child: Card(
+                    margin: const EdgeInsets.all(0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: RecentQuizCardWidget(
+                      subjectsModel: subjects[currentPage],
+                    ),
                   ),
                 ),
               ),
@@ -154,7 +162,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-
       //  BOTTOM NAVIGATION SECTION
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

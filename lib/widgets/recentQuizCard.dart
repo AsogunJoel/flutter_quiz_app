@@ -32,11 +32,13 @@ class RecentQuizCardWidget extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            subjectsModel.subTopic.toList().toString(),
-            style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
+          Expanded(
+            child: Text(
+              subjectsModel.subTopic.join(', '),
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
           Padding(
@@ -57,26 +59,38 @@ class RecentQuizCardWidget extends StatelessWidget {
             children: [
               Row(
                 children: const [
-                  Icon(CupertinoIcons.news),
+                  Icon(
+                    CupertinoIcons.news,
+                    size: 17,
+                  ),
                   SizedBox(
-                    width: 10,
+                    width: 5,
                   ),
                   Text(
                     '1/10 Questions',
-                    style: TextStyle(fontSize: 17, color: Colors.grey),
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.grey,
+                    ),
                   )
                 ],
               ),
               const SizedBox(height: 5),
               Row(
                 children: const [
-                  Icon(CupertinoIcons.clock),
+                  Icon(
+                    CupertinoIcons.clock,
+                    size: 17,
+                  ),
                   SizedBox(
-                    width: 10,
+                    width: 5,
                   ),
                   Text(
                     '15 Mins',
-                    style: TextStyle(fontSize: 17, color: Colors.grey),
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.grey,
+                    ),
                   )
                 ],
               ),
