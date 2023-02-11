@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -57,17 +58,58 @@ Widget headerWidget() {
         ],
       ),
       /* STACKED WHITE CONTAINER SECTION */
-      const Positioned(
-        left: 20,
-        right: 20,
+      Positioned(
+        left: 15,
+        right: 15,
         top: 180,
-        child: Card(
-          child: SizedBox(
-            height: 110,
-            child: Padding(
-              padding: EdgeInsets.only(top: 15, left: 15, right: 15),
-              child: Text('Let\'s test your knowledge'),
-            ),
+        child: Container(
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                BoxShadow(
+                    blurRadius: 2,
+                    spreadRadius: 2,
+                    offset: Offset(3, 4),
+                    color: Colors.black12)
+              ]),
+          height: 110,
+          padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text('Let\'s test your knowledge'),
+              Row(
+                children: [
+                  const Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.symmetric(horizontal: 15),
+                        filled: true,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                            borderSide: BorderSide.none),
+                        hintText: 'Search',
+                        // hintStyle: TextStyle(fontSize: 25),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 15),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      // maximumSize: Size(70, 70),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text('data'),
+                  )
+                ],
+              )
+            ],
           ),
         ),
       )
