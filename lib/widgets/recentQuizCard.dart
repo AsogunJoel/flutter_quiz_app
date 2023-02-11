@@ -4,11 +4,15 @@ import 'package:flutter_quiz_app/models/topic_model.dart';
 import 'package:ionicons/ionicons.dart';
 
 class RecentQuizCardWidget extends StatelessWidget {
-  final SubjectsModel subjectsModel;
+  final String? subjectsModel;
+  final IconData? icon;
+  final Color? iconcolor;
 
   const RecentQuizCardWidget({
     super.key,
     required this.subjectsModel,
+    required this.icon,
+    required this.iconcolor,
   });
 
   @override
@@ -22,11 +26,10 @@ class RecentQuizCardWidget extends StatelessWidget {
       leading: Container(
         height: 100,
         width: 60,
-        color: subjectsModel.color,
+        color: iconcolor,
         child: Icon(
-          subjectsModel.icon,
+          icon,
           size: 35,
-          color: subjectsModel.iconColor,
         ),
       ),
       title: Row(
@@ -34,7 +37,7 @@ class RecentQuizCardWidget extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              subjectsModel.subTopic.join(', '),
+              subjectsModel!,
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
