@@ -16,7 +16,7 @@ Widget headerWidget() {
               child: SafeArea(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    vertical: 20,
+                    vertical: 10,
                     horizontal: 20,
                   ),
                   child: Column(
@@ -68,7 +68,7 @@ Widget headerWidget() {
       Positioned(
         left: 15,
         right: 15,
-        top: 180,
+        top: 167,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,

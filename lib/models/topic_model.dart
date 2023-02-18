@@ -1,6 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:ionicons/ionicons.dart';
-
 class TopicModel {
   final List<QuestionModel>? questionModel;
   final String? subject;
@@ -40,70 +37,6 @@ class QuestionModel {
     required this.answer,
   });
 }
-
-/*
-Topics we'll use are computer, science, art.
-computer subtopics:
-  'UI/UX'
-  'Flutter'
-  'JavaScript'
-
-science subtopics:
-  'Anatomy'
-  'Physiology'
-  'Medical Microbiology'
-
-art subtopics:
-  'Fine art'
-  'Pottery'
-  'Painting'
-
-  Please not that in question below you will
-  have to write questions for al the art subjects to
-  get familiar with the data models.
-  
-*/
-
-class SubjectsModel {
-  final String subject;
-  final List<String> subTopic;
-  final IconData? icon;
-  final Color? color;
-  final Color? iconColor;
-
-  SubjectsModel(
-    this.subject,
-    this.subTopic,
-    this.icon,
-    this.color,
-    this.iconColor,
-  );
-}
-
-/* RECENT QUIZ SUBJECTS */
-List<SubjectsModel> subjects = [
-  SubjectsModel(
-    'Computer',
-    ['UI/UX', 'Flutter', 'JavaScript'],
-    Ionicons.laptop_outline,
-    const Color(0xffFFF4DB),
-    const Color(0xffFFBD6C),
-  ),
-  SubjectsModel(
-    'Artistry',
-    ['Painting', 'Pottery', 'Fine Art'],
-    CupertinoIcons.burn,
-    const Color(0xffE3FEF0),
-    const Color(0xff49D68C),
-  ),
-  SubjectsModel(
-    'Science',
-    ['Anatomy', 'Physiology', 'Medical Microbiology'],
-    Ionicons.flask_outline,
-    const Color(0xffEDECFA),
-    const Color(0xffA5A1C8),
-  ),
-];
 
 List<TopicModel> questions = [
   //ui/ux
