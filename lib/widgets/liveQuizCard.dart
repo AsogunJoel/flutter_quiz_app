@@ -2,91 +2,87 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LiveQuizCardWidget extends StatelessWidget {
+  final String? subjectsModel;
+  final IconData? icon;
+  final Color? iconColor;
+  final Color? color;
+  final int peopleCount;
+  final double? rating;
+  final int numQuestion;
+
   const LiveQuizCardWidget({
     super.key,
+    required this.subjectsModel,
+    required this.icon,
+    required this.iconColor,
+    required this.color,
+    required this.peopleCount,
+    required this.rating,
+    required this.numQuestion,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 4,
-      child: ListTile(
-        isThreeLine: true,
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 12,
-          vertical: 5,
-        ),
-        leading: Container(
-          height: 60,
-          width: 60,
-          color: const Color(0xffE3FEF0),
-          child: const Icon(
-            CupertinoIcons.grid,
-            size: 35,
-            color: Color(0xff49D68C),
+    return ListTile(
+      isThreeLine: true,
+      leading: Container(
+        height: 60,
+        width: 60,
+        color: color,
+        child: Icon(icon, size: 35, color: iconColor),
+      ),
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            subjectsModel!,
+            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
           ),
-        ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Text(
-              'Computer',
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                const Icon(
+                  Icons.star_outlined,
+                  color: Color(0xffFFBD6C),
+                  size: 20,
+                ),
+                //  RATING SECTION
+                Text(
+                  rating.toString(),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                )
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: const [
-                  Icon(
-                    Icons.star_outlined,
-                    color: Color(0xffFFBD6C),
-                    size: 27,
-                  ),
+          )
+        ],
+      ),
+      subtitle: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Icon(CupertinoIcons.square_pencil),
+                  const SizedBox(width: 10),
                   Text(
-                    '4.8',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    '$numQuestion Questions',
+                    style: const TextStyle(fontSize: 17, color: Colors.grey),
                   )
                 ],
               ),
-            )
-          ],
-        ),
-        subtitle: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: const [
-                    Icon(CupertinoIcons.square_pencil),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      '10/10 Questions',
-                      style: TextStyle(fontSize: 17, color: Colors.grey),
-                    )
-                  ],
-                ),
-                Row(
-                  children: const [
-                    Icon(CupertinoIcons.time),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    Text(
-                      '1 hour 15 mins',
-                      style: TextStyle(fontSize: 17, color: Colors.grey),
-                    )
-                  ],
-                ),
-              ],
-            ),
-
-            //  RATING SECTION
-          ],
-        ),
+              Row(
+                children: [
+                  const Icon(CupertinoIcons.person_2_alt),
+                  const SizedBox(width: 10),
+                  Text('$peopleCount Users Playing'),
+                ],
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz_app/pages/homepage.dart';
+import 'package:flutter_quiz_app/pages/pages.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         ),
       ),
-      home: const HomePage(),
+      home: const NavigationPages(),
     );
   }
 }
