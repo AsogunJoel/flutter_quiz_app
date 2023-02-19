@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xff8881B2),
+          seedColor: const Color(0xff8981B3),
         ),
         textTheme: GoogleFonts.alefTextTheme(
           Theme.of(context).textTheme,

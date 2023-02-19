@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                   vertical: 5,
                 ),
                 width: size.width,
-                height: 40,
+                height: 45,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   physics: const BouncingScrollPhysics(),
@@ -85,14 +85,14 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            /* QUIZ SECTION */
             Expanded(
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  // shrinkWrap: true,
                   children: [
-                    /* LIVE QUIZ SECTION */
+                    /* RECENT QUIZ SECTION */
                     const TitleWidget(text: 'Recent Quiz'),
                     ListView.builder(
                       padding: EdgeInsets.zero,
@@ -115,10 +115,8 @@ class _HomePageState extends State<HomePage> {
                         );
                       },
                     ),
-                    /* RECENT QUIZ SECTION */
-                    const SizedBox(
-                      height: 8,
-                    ),
+                    /* LIVE QUIZ SECTION */
+                    const SizedBox(height: 10),
                     const TitleWidget(text: 'Live Quiz'),
                     ListView.builder(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -128,7 +126,6 @@ class _HomePageState extends State<HomePage> {
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (context, index1) => GestureDetector(
                           onTap: () => setState(() {
-                                // currentPage = index1;
                                 liveCurrentPage = index1;
                               }),
                           child: Padding(
@@ -139,8 +136,7 @@ class _HomePageState extends State<HomePage> {
                                 border: liveCurrentPage == index1
                                     ? Border.all(
                                         color: const Color(0xff8881B2),
-                                        width: 2,
-                                      )
+                                        width: 2)
                                     : null,
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -148,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                                 elevation: 3,
                                 color: liveCurrentPage == index1
                                     ? Colors.white
-                                    : null,
+                                    : Colors.white.withOpacity(0.8),
                                 margin: const EdgeInsets.all(0),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
