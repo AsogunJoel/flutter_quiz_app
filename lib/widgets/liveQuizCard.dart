@@ -36,25 +36,27 @@ class LiveQuizCardWidget extends StatelessWidget {
         children: [
           Text(
             subjectsModel!,
-            style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                const Icon(
-                  Icons.star_outlined,
-                  color: Color(0xffFFBD6C),
-                  size: 20,
-                ),
-                //  RATING SECTION
-                Text(
-                  rating.toString(),
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                )
-              ],
+            style: const TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
             ),
-          )
+          ),
+        ],
+      ),
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            rating.toString(),
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const Icon(
+            Icons.star_outlined,
+            color: Color(0xffFFBD6C),
+            size: 15,
+          ),
         ],
       ),
       subtitle: Row(
@@ -65,7 +67,10 @@ class LiveQuizCardWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const Icon(CupertinoIcons.square_pencil),
+                  const Icon(
+                    CupertinoIcons.square_pencil,
+                    size: 15,
+                  ),
                   const SizedBox(width: 10),
                   Text(
                     '$numQuestion Questions',
@@ -75,9 +80,12 @@ class LiveQuizCardWidget extends StatelessWidget {
               ),
               Row(
                 children: [
-                  const Icon(CupertinoIcons.person_2_alt),
+                  const Icon(
+                    CupertinoIcons.person_2_alt,
+                    size: 15,
+                  ),
                   const SizedBox(width: 10),
-                  Text('$peopleCount Users Playing'),
+                  Text('$peopleCount users playing'),
                 ],
               ),
             ],

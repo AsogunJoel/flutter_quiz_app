@@ -23,10 +23,10 @@ List<RecentSubjectsModel> recentSubjects = [
     const Color(0xffFFF4DB),
     const Color(0xffFFBD6C),
   ),
-  RecentSubjectsModel(
-    'Fine Art',
-    CupertinoIcons.rectangle_3_offgrid_fill,
-    const Color(0xffE3FEF0),
-    const Color(0xff49D68C),
-  ),
+  // RecentSubjectsModel(
+  //   'Fine Art',
+  //   CupertinoIcons.rectangle_3_offgrid_fill,
+  //   const Color(0xffE3FEF0),
+  //   const Color(0xff49D68C),
+  // ),
 ];

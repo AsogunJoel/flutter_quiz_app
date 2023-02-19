@@ -12,13 +12,13 @@ class TitleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-        horizontal: 25,
+        horizontal: 15,
         vertical: 6,
       ),
       child: Text(
         text,
         style: const TextStyle(
-          fontSize: 25,
+          fontSize: 18,
           fontWeight: FontWeight.bold,
         ),
       ),

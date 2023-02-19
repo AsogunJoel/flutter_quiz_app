@@ -23,7 +23,6 @@ class _NavigationPagesState extends State<NavigationPages> {
       backgroundColor: const Color(0xffF3F3F3),
       // NAVIGATION SCREEN
       body: pages[navIndex],
-
       //  BOTTOM NAVIGATION SECTION
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

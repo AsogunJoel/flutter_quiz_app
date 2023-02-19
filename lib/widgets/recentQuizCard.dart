@@ -19,6 +19,10 @@ class RecentQuizCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: const EdgeInsets.all(0),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: ListTile(
         isThreeLine: true,
         leading: Container(
@@ -43,14 +47,6 @@ class RecentQuizCardWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Ionicons.trash,
-                color: Colors.grey.shade300,
-                // size: 15,
-              ),
-            )
           ],
         ),
         subtitle: Row(

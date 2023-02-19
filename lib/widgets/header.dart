@@ -20,37 +20,41 @@ Widget headerWidget() {
                     horizontal: 20,
                   ),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                "Let's Play",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 30,
-                                    color: Colors.white),
-                              ),
-                              SizedBox(height: 5),
-                              Text(
-                                "And be the first",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 17),
-                              )
-                            ],
-                          ),
-                          const CircleAvatar(
-                            radius: 23,
-                            backgroundColor: Colors.white,
-                            child: Icon(
-                              Ionicons.person_outline,
-                              color: Colors.grey,
+                      Transform.translate(
+                        offset: const Offset(0, -30),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: const [
+                                Text(
+                                  "Let's Play",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 30,
+                                      color: Colors.white),
+                                ),
+                                SizedBox(height: 5),
+                                Text(
+                                  "And be the first",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 17),
+                                )
+                              ],
                             ),
-                          )
-                        ],
+                            const CircleAvatar(
+                              radius: 23,
+                              backgroundColor: Colors.white,
+                              child: Icon(
+                                Ionicons.person_outline,
+                                color: Colors.grey,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -83,13 +87,18 @@ Widget headerWidget() {
             ],
           ),
           height: 110,
-          padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+          padding: const EdgeInsets.only(top: 15, left: 10, right: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Padding(
                 padding: EdgeInsets.all(8.0),
-                child: Text('Let\'s test your knowledge'),
+                child: Text(
+                  'Let\'s test your knowledge',
+                  style: TextStyle(
+                    fontSize: 18,
+                  ),
+                ),
               ),
               Row(
                 children: [
@@ -103,20 +112,24 @@ Widget headerWidget() {
                               Radius.circular(10),
                             ),
                             borderSide: BorderSide.none),
-                        hintText: 'Search',
+                        hintText: 'Search Quiz',
                         // hintStyle: TextStyle(fontSize: 25),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 15),
+                  const SizedBox(
+                    width: 8,
+                  ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
-                    onPressed: () {},
-                    child: const Text('data'),
+                    onPressed: () {
+                      print('Search data');
+                    },
+                    child: const Icon(Icons.search),
                   )
                 ],
               )

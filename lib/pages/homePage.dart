@@ -22,156 +22,161 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return SizedBox(
-      height: size.height,
-      width: size.width,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          /* HEADER SECTION */
-          headerWidget(),
-
-          /* SUBJECT HORIZONTAL LISTVIEW SECTION */
-          SizedBox(
-            width: size.width,
-            height: size.height * 0.05,
-            // color: Colors.red,
-            child: Stack(
-              children: [
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 5,
+    return Scaffold(
+      body: SizedBox(
+        height: size.height,
+        width: size.width,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            /* HEADER SECTION */
+            headerWidget(),
+            /* SUBJECT HORIZONTAL LISTVIEW SECTION */
+            SizedBox(
+              width: size.width,
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 5,
+                ),
+                width: size.width,
+                height: 40,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: liveSubjects.length,
+                  itemBuilder: (context, index) => GestureDetector(
+                    key: ValueKey(liveSubjects[index].subject),
+                    onTap: () => setState(
+                      () {
+                        currentPage = index;
+                        liveCurrentPage = -1;
+                      },
                     ),
-                    width: size.width,
-                    height: size.height * 0.055,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      physics: const BouncingScrollPhysics(),
-                      itemCount: liveSubjects.length,
-                      itemBuilder: (context, index) => GestureDetector(
-                        onTap: () => setState(() {
-                          currentPage = index;
-                        }),
-                        child: Container(
-                          // duration: const Duration(milliseconds: 300),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 15,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 15,
+                      ),
+                      child: Column(
+                        children: [
+                          Text(
+                            liveSubjects[index].subject,
+                            style: TextStyle(
+                              fontSize: currentPage == index ? 17 : 16,
+                              fontWeight: currentPage == index
+                                  ? FontWeight.bold
+                                  : FontWeight.w200,
+                            ),
                           ),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  liveSubjects[index].subject,
-                                  style: TextStyle(
-                                    fontSize: currentPage == index ? 18 : 14,
-                                    fontWeight: currentPage == index
-                                        ? FontWeight.bold
-                                        : FontWeight.w200,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 5),
-                              AnimatedContainer(
-                                duration: const Duration(milliseconds: 200),
-                                height: currentPage == index ? 6 : 0,
-                                width: 65,
-                                decoration: BoxDecoration(
-                                  color: const Color(0xff8981B3),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                              )
-                            ],
+                          const SizedBox(height: 5),
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 200),
+                            height: currentPage == index ? 4 : 0,
+                            width: 65,
+                            decoration: BoxDecoration(
+                              color: const Color(0xff8981B3),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
-          ),
-          const SizedBox(height: 5),
-
-          /* LIVE QUIZ SECTION */
-          const TitleWidget(text: 'Recent Quiz'),
-          Expanded(
-            child: ListView.builder(
-              padding: EdgeInsets.zero,
-              itemCount: recentSubjects.length,
-              itemBuilder: (_, index) {
-                return SizedBox(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: RecentQuizCardWidget(
-                      subjectsModel: recentSubjects[recentCurrentPage].subTopic,
-                      color: recentSubjects[recentCurrentPage].color,
-                      icon: recentSubjects[recentCurrentPage].icon,
-                      iconColor: recentSubjects[recentCurrentPage].iconColor,
+            Expanded(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  // shrinkWrap: true,
+                  children: [
+                    /* LIVE QUIZ SECTION */
+                    const TitleWidget(text: 'Recent Quiz'),
+                    ListView.builder(
+                      padding: EdgeInsets.zero,
+                      itemCount: recentSubjects.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (_, index) {
+                        return SizedBox(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 15),
+                            child: RecentQuizCardWidget(
+                              subjectsModel:
+                                  recentSubjects[recentCurrentPage].subTopic,
+                              color: recentSubjects[recentCurrentPage].color,
+                              icon: recentSubjects[recentCurrentPage].icon,
+                              iconColor:
+                                  recentSubjects[recentCurrentPage].iconColor,
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                  ),
-                );
-              },
-            ),
-          ),
-
-          /* RECENT QUIZ SECTION */
-          const TitleWidget(text: 'Live Quiz'),
-          SizedBox(
-            height: 160,
-            child: ListView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              shrinkWrap: true,
-              itemCount: liveSubjects[currentPage].subTopic.length,
-              scrollDirection: Axis.vertical,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index1) => GestureDetector(
-                  onTap: () => setState(() {
-                        currentPage == index1;
-                      }),
-                  child: Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 200),
-                      decoration: BoxDecoration(
-                        border: liveCurrentPage == index1
-                            ? Border.all(
-                                color: const Color(0xff8881B2),
-                                width: 3,
-                              )
-                            : null,
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: Card(
-                        elevation: 3,
-                        color: liveCurrentPage == index1
-                            ? Colors.white
-                            : const Color(0xffF3F3F3),
-                        margin: const EdgeInsets.all(0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: LiveQuizCardWidget(
-                          icon: liveSubjects[currentPage].icon[index1],
-                          iconColor: liveSubjects[currentPage].iconColor,
-                          subjectsModel:
-                              liveSubjects[currentPage].subTopic[index1],
-                          color: liveSubjects[currentPage].color,
-                          rating: liveSubjects[currentPage].rating[index1],
-                          numQuestion:
-                              liveSubjects[currentPage].numQuestion[index1],
-                          peopleCount:
-                              liveSubjects[currentPage].peopleCount[index1],
-                        ),
-                      ),
+                    /* RECENT QUIZ SECTION */
+                    const SizedBox(
+                      height: 8,
                     ),
-                  )),
-            ),
-          ),
-        ],
+                    const TitleWidget(text: 'Live Quiz'),
+                    ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      shrinkWrap: true,
+                      itemCount: liveSubjects[currentPage].subTopic.length,
+                      scrollDirection: Axis.vertical,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, index1) => GestureDetector(
+                          onTap: () => setState(() {
+                                // currentPage = index1;
+                                liveCurrentPage = index1;
+                              }),
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: AnimatedContainer(
+                              duration: const Duration(milliseconds: 200),
+                              decoration: BoxDecoration(
+                                border: liveCurrentPage == index1
+                                    ? Border.all(
+                                        color: const Color(0xff8881B2),
+                                        width: 2,
+                                      )
+                                    : null,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Card(
+                                elevation: 3,
+                                color: liveCurrentPage == index1
+                                    ? Colors.white
+                                    : null,
+                                margin: const EdgeInsets.all(0),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: LiveQuizCardWidget(
+                                  icon: liveSubjects[currentPage].icon[index1],
+                                  iconColor:
+                                      liveSubjects[currentPage].iconColor,
+                                  subjectsModel: liveSubjects[currentPage]
+                                      .subTopic[index1],
+                                  color: liveSubjects[currentPage].color,
+                                  rating:
+                                      liveSubjects[currentPage].rating[index1],
+                                  numQuestion: liveSubjects[currentPage]
+                                      .numQuestion[index1],
+                                  peopleCount: liveSubjects[currentPage]
+                                      .peopleCount[index1],
+                                ),
+                              ),
+                            ),
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
