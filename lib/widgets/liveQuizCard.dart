@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../pages/question_desc_page.dart';
+
 class LiveQuizCardWidget extends StatelessWidget {
   final String? subjectsModel;
   final IconData? icon;
@@ -21,9 +23,21 @@ class LiveQuizCardWidget extends StatelessWidget {
     required this.numQuestion,
   });
 
+  questDecNavigator(context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return const QuestionDescriptionPage();
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) {
+          return const QuestionDescriptionPage();
+        }),
+      ),
       isThreeLine: true,
       leading: Container(
         height: 60,
