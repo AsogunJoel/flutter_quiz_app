@@ -34,9 +34,16 @@ class LiveQuizCardWidget extends StatelessWidget {
     return ListTile(
       onTap: () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) {
-          return const QuestionDescriptionPage();
-        }),
+        MaterialPageRoute(
+          builder: (context) {
+            return const QuestionDescriptionPage();
+          },
+          settings: RouteSettings(
+            arguments: {
+              'title': subjectsModel,
+            },
+          ),
+        ),
       ),
       isThreeLine: true,
       leading: Container(

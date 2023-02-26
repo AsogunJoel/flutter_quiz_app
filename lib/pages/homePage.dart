@@ -118,55 +118,9 @@ class _HomePageState extends State<HomePage> {
                     /* LIVE QUIZ SECTION */
                     const SizedBox(height: 10),
                     const TitleWidget(text: 'Live Quiz'),
-                    ListView.builder(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      shrinkWrap: true,
-                      itemCount: liveSubjects[currentPage].subTopic.length,
-                      scrollDirection: Axis.vertical,
-                      physics: const BouncingScrollPhysics(),
-                      itemBuilder: (context, index1) => GestureDetector(
-                          onTap: () => setState(() {
-                                liveCurrentPage = index1;
-                              }),
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 200),
-                              decoration: BoxDecoration(
-                                border: liveCurrentPage == index1
-                                    ? Border.all(
-                                        color: const Color(0xff8881B2),
-                                        width: 2)
-                                    : null,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Card(
-                                elevation: 3,
-                                color: liveCurrentPage == index1
-                                    ? Colors.white
-                                    : Colors.white.withOpacity(0.8),
-                                margin: const EdgeInsets.all(0),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: LiveQuizCardWidget(
-                                  icon: liveSubjects[currentPage].icon[index1],
-                                  iconColor:
-                                      liveSubjects[currentPage].iconColor,
-                                  subjectsModel: liveSubjects[currentPage]
-                                      .subTopic[index1],
-                                  color: liveSubjects[currentPage].color,
-                                  rating:
-                                      liveSubjects[currentPage].rating[index1],
-                                  numQuestion: liveSubjects[currentPage]
-                                      .numQuestion[index1],
-                                  peopleCount: liveSubjects[currentPage]
-                                      .peopleCount[index1],
-                                ),
-                              ),
-                            ),
-                          )),
-                    ),
+                    LiveQuiz(
+                      liveSubject: liveSubjects[currentPage],
+                    )
                   ],
                 ),
               ),
@@ -174,6 +128,62 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class LiveQuiz extends StatelessWidget {
+  const LiveQuiz({super.key, required this.liveSubject});
+  final LiveSubjectsModel liveSubject;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      shrinkWrap: true,
+      itemCount: liveSubject.subTopic.length,
+      scrollDirection: Axis.vertical,
+      physics: const BouncingScrollPhysics(),
+      itemBuilder: (context, index1) => GestureDetector(
+          // onTap: ()
+          // => setState(() {
+          //       liveCurrentPage = index1;
+          //     }),
+          child: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 200),
+          decoration: BoxDecoration(
+            // border:
+            //     // liveCurrentPage == index1
+            //     //     ?
+            //     Border.all(color: const Color(0xff8881B2), width: 2),
+            // // : null,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Card(
+            elevation: 3,
+            color:
+                // liveCurrentPage == index1
+                //     ?
+                Colors.white,
+            // : Colors.white.withOpacity(0.8),
+            margin: const EdgeInsets.all(0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: LiveQuizCardWidget(
+              icon: liveSubject.icon[index1],
+              iconColor: liveSubject.iconColor,
+              subjectsModel: liveSubject.subTopic[index1],
+              color: liveSubject.color,
+              rating: liveSubject.rating[index1],
+              numQuestion: liveSubject.numQuestion[index1],
+              peopleCount: liveSubject.peopleCount[index1],
+            ),
+          ),
+        ),
+      )),
     );
   }
 }

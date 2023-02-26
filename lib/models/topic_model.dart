@@ -2,7 +2,7 @@ class TopicModel {
   final List<QuestionModel>? questionModel;
   final String? subject;
   final String? subTopic;
-  final String? instructions;
+  final TopicDescriptionModel? instructions;
   double? rating;
 
   TopicModel({
@@ -15,12 +15,14 @@ class TopicModel {
 }
 
 class TopicDescriptionModel {
-  final String? instruction;
-  final String? subject;
+  final List<String?> instruction;
+  final String time;
+  final String? points;
 
   TopicDescriptionModel({
+    required this.time,
+    required this.points,
     required this.instruction,
-    required this.subject,
   });
 }
 
@@ -38,7 +40,7 @@ class QuestionModel {
   });
 }
 
-List<TopicModel> questions = [
+List<TopicModel> QUESTIONS = [
   //ui/ux
   TopicModel(
     questionModel: [
@@ -78,7 +80,16 @@ List<TopicModel> questions = [
     ],
     subject: 'Computer',
     subTopic: 'UI/UX',
-    instructions: 'Please answer all questions',
+    instructions: TopicDescriptionModel(
+      time: '30 mins',
+      points: '10',
+      instruction: [
+        'Please answer all UI/UX questions',
+        'Second instruction',
+        'Third instruction',
+        'Fourth instruction',
+      ],
+    ),
   ),
   //flutter
   TopicModel(
@@ -119,7 +130,16 @@ List<TopicModel> questions = [
     ],
     subject: 'Computer',
     subTopic: 'Flutter',
-    instructions: 'Please answer all Flutter questions',
+    instructions: TopicDescriptionModel(
+      time: '30 mins',
+      points: '10',
+      instruction: [
+        'Please answer all flutter questions',
+        'Second instruction',
+        'Third instruction',
+        'Fourth instruction',
+      ],
+    ),
   ),
   //Javascript
   TopicModel(
@@ -161,8 +181,17 @@ List<TopicModel> questions = [
       ),
     ],
     subject: 'Computer',
-    subTopic: 'Javascript',
-    instructions: 'Please answer all questions',
+    subTopic: 'JavaScript',
+    instructions: TopicDescriptionModel(
+      time: '30 mins',
+      points: '10',
+      instruction: [
+        'Please answer all javascript questions',
+        'Second instruction',
+        'Third instruction',
+        'Fourth instruction',
+      ],
+    ),
   ),
   //Anatomy
   TopicModel(
@@ -205,7 +234,16 @@ List<TopicModel> questions = [
     ],
     subject: 'Science',
     subTopic: 'Anatomy',
-    instructions: 'Please answer all questions',
+    instructions: TopicDescriptionModel(
+      time: '30 mins',
+      points: '10',
+      instruction: [
+        'Please answer all anatomy questions',
+        'Second instruction',
+        'Third instruction',
+        'Fourth instruction',
+      ],
+    ),
   ),
   //Physiology
   TopicModel(
@@ -246,7 +284,16 @@ List<TopicModel> questions = [
     ],
     subject: 'Science',
     subTopic: 'Physiology',
-    instructions: 'Please answer all questions',
+    instructions: TopicDescriptionModel(
+      time: '30 mins',
+      points: '10',
+      instruction: [
+        'Please answer all physiology questions',
+        'Second instruction',
+        'Third instruction',
+        'Fourth instruction',
+      ],
+    ),
   ),
   //Medical Microbiology
   TopicModel(
@@ -286,7 +333,202 @@ List<TopicModel> questions = [
       ),
     ],
     subject: 'Science',
-    subTopic: 'Physiology',
-    instructions: 'Please answer all questions',
+    subTopic: 'Medical Microbiology',
+    instructions: TopicDescriptionModel(
+      time: '30 mins',
+      points: '10',
+      instruction: [
+        'Please answer all Medical Microbiology questions',
+        'Second instruction',
+        'Third instruction',
+        'Fourth instruction',
+      ],
+    ),
+  ),
+
+  //Painting
+  TopicModel(
+    questionModel: [
+      QuestionModel(
+        question: 'Which of the following arteries does not supply the scalp?',
+        answers: [
+          'Frontal artery',
+          'Temporal artery',
+          'Gleno-humeral artery',
+          'Brachial artery',
+        ],
+        answerDescription: 'Brachial artery',
+        answer: 'Brachial artery',
+      ),
+      QuestionModel(
+        question:
+            'Which of the following arteries does not supply the scalp(Q2)?',
+        answers: [
+          'Frontal artery',
+          'Temporal artery',
+          'Gleno-humeral artery',
+          'Brachial artery',
+        ],
+        answerDescription: 'Brachial artery',
+        answer: 'Brachial artery',
+      ),
+      QuestionModel(
+        question:
+            'Which of the following arteries does not supply the scalp(Q3)?',
+        answers: [
+          'Frontal artery',
+          'Temporal artery',
+          'Gleno-humeral artery',
+          'Brachial artery',
+        ],
+        answerDescription: 'Brachial artery',
+        answer: 'Brachial artery',
+      ),
+    ],
+    subject: 'Artistry',
+    subTopic: 'Painting',
+    instructions: TopicDescriptionModel(
+      time: '30 mins',
+      points: '10',
+      instruction: [
+        'Please answer all painting questions',
+        'Second instruction',
+        'Third instruction',
+        'Fourth instruction',
+      ],
+    ),
+  ),
+  //Pottery
+  TopicModel(
+    questionModel: [
+      QuestionModel(
+        question: 'What is the most abundant anion in the human body?',
+        answers: [
+          'Sodium',
+          'Potassium',
+          'Calcium',
+          'Zinc',
+        ],
+        answerDescription: 'Sodium',
+        answer: 'Sodium',
+      ),
+      QuestionModel(
+        question: 'What is the most abundant anion in the human body(Q2)?',
+        answers: [
+          'Sodium',
+          'Potassium',
+          'Calcium',
+          'Zinc',
+        ],
+        answerDescription: 'Sodium',
+        answer: 'Sodium',
+      ),
+      QuestionModel(
+        question: 'What is the most abundant anion in the human body(Q3)?',
+        answers: [
+          'Sodium',
+          'Potassium',
+          'Calcium',
+          'Zinc',
+        ],
+        answerDescription: 'Sodium',
+        answer: 'Sodium',
+      ),
+      QuestionModel(
+        question: 'What is the most abundant anion in the human body(Q3)?',
+        answers: [
+          'Sodium',
+          'Potassium',
+          'Calcium',
+          'Zinc',
+        ],
+        answerDescription: 'Sodium',
+        answer: 'Sodium',
+      ),
+      QuestionModel(
+        question: 'What is the most abundant anion in the human body(Q3)?',
+        answers: [
+          'Sodium',
+          'Potassium',
+          'Calcium',
+          'Zinc',
+        ],
+        answerDescription: 'Sodium',
+        answer: 'Sodium',
+      ),
+    ],
+    subject: 'Artistry',
+    subTopic: 'Pottery',
+    instructions: TopicDescriptionModel(
+      time: '30 mins',
+      points: '10',
+      instruction: [
+        'Please answer all pottery questions',
+        'Second instruction',
+        'Third instruction',
+        'Fourth instruction',
+      ],
+    ),
+  ),
+  //Medical Microbiology
+  TopicModel(
+    questionModel: [
+      QuestionModel(
+        question: 'Which of these is not healthy?',
+        answers: [
+          'LDL',
+          'HDL',
+          'Cholesterol',
+          'Glucose',
+        ],
+        answerDescription: 'LDL',
+        answer: 'LDL',
+      ),
+      QuestionModel(
+        question: 'Which of these is not healthy?',
+        answers: [
+          'LDL',
+          'HDL',
+          'Cholesterol',
+          'Glucose',
+        ],
+        answerDescription: 'LDL',
+        answer: 'LDL',
+      ),
+      QuestionModel(
+        question: 'Which of these is not healthy(Q2)?',
+        answers: [
+          'LDL',
+          'HDL',
+          'Cholesterol',
+          'Glucose',
+        ],
+        answerDescription: 'LDL',
+        answer: 'LDL',
+      ),
+      QuestionModel(
+        question: 'Which of these is not healthy(Q3)?',
+        answers: [
+          'LDL',
+          'HDL',
+          'Cholesterol',
+          'Glucose',
+        ],
+        answerDescription: 'LDL',
+        answer: 'LDL',
+      ),
+    ],
+    subject: 'Artistry',
+    subTopic: 'Fine Art',
+    instructions: TopicDescriptionModel(
+      time: '30 mins',
+      points: '10',
+      instruction: [
+        'Please answer all fine art questions',
+        'Second instruction',
+        'Third instruction',
+        'Fourth instruction',
+      ],
+    ),
   ),
 ];
