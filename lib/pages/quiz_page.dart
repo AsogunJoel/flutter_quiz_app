@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz_app/models/topic_model.dart';
-import 'package:flutter_quiz_app/pages/question_desc_page.dart';
+import '../models/topic_model.dart';
 
 class QuizQuestionsPage extends StatefulWidget {
   const QuizQuestionsPage({super.key});
