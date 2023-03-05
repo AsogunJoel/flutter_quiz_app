@@ -31,12 +31,14 @@ class QuestionModel {
   List<String> answers;
   String answerDescription;
   String answer;
+  String choosenAnswer;
 
   QuestionModel({
     required this.question,
     required this.answers,
     required this.answerDescription,
     required this.answer,
+    required this.choosenAnswer,
   });
 }
 
@@ -53,6 +55,7 @@ List<TopicModel> QUESTIONS = [
           'User interface / User experience',
         ],
         answerDescription: 'ui/ux stands for User interface / User experience',
+        choosenAnswer: '',
         answer: 'User interface / User experience',
       ),
       QuestionModel(
@@ -64,6 +67,7 @@ List<TopicModel> QUESTIONS = [
           'User interface / User experience',
         ],
         answerDescription: 'ui/ux stands for User interface / User experience',
+        choosenAnswer: '',
         answer: 'User interface / User experience',
       ),
       QuestionModel(
@@ -75,6 +79,43 @@ List<TopicModel> QUESTIONS = [
           'User interface / User experience',
         ],
         answerDescription: 'ui/ux stands for User interface / User experience',
+        choosenAnswer: '',
+        answer: 'User interface / User experience',
+      ),
+      QuestionModel(
+        question: 'What is ui/ux (question 4) ?',
+        answers: [
+          "User interface",
+          'User interaction',
+          'User Experience',
+          'User interface / User experience',
+        ],
+        answerDescription: 'ui/ux stands for User interface / User experience',
+        choosenAnswer: '',
+        answer: 'User interface / User experience',
+      ),
+      QuestionModel(
+        question: 'What is ui/ux (question 5) ?',
+        answers: [
+          "User interface",
+          'User interaction',
+          'User Experience',
+          'User interface / User experience',
+        ],
+        answerDescription: 'ui/ux stands for User interface / User experience',
+        choosenAnswer: '',
+        answer: 'User interface / User experience',
+      ),
+      QuestionModel(
+        question: 'What is ui/ux (question 6) ?',
+        answers: [
+          "User interface",
+          'User interaction',
+          'User Experience',
+          'User interface / User experience',
+        ],
+        answerDescription: 'ui/ux stands for User interface / User experience',
+        choosenAnswer: '',
         answer: 'User interface / User experience',
       ),
     ],
@@ -103,6 +144,7 @@ List<TopicModel> QUESTIONS = [
           'Book Author',
         ],
         answerDescription: 'Flutter is programming language created by google',
+        choosenAnswer: '',
         answer: 'Programming language',
       ),
       QuestionModel(
@@ -114,6 +156,7 @@ List<TopicModel> QUESTIONS = [
           'Book Author',
         ],
         answerDescription: 'Flutter is programming language created by google',
+        choosenAnswer: '',
         answer: 'Programming language',
       ),
       QuestionModel(
@@ -125,6 +168,7 @@ List<TopicModel> QUESTIONS = [
           'Book Author',
         ],
         answerDescription: 'Flutter is programming language created by google',
+        choosenAnswer: '',
         answer: 'Programming language',
       ),
     ],
@@ -153,6 +197,7 @@ List<TopicModel> QUESTIONS = [
           'All of the above',
         ],
         answerDescription: 'All can be used to write JS code',
+        choosenAnswer: '',
         answer: 'All of the above',
       ),
       QuestionModel(
@@ -165,6 +210,7 @@ List<TopicModel> QUESTIONS = [
           'All of the above',
         ],
         answerDescription: 'All can be used to write JS code',
+        choosenAnswer: '',
         answer: 'All of the above',
       ),
       QuestionModel(
@@ -177,6 +223,7 @@ List<TopicModel> QUESTIONS = [
           'All of the above',
         ],
         answerDescription: 'All can be used to write JS code',
+        choosenAnswer: '',
         answer: 'All of the above',
       ),
     ],
@@ -205,6 +252,7 @@ List<TopicModel> QUESTIONS = [
           'Brachial artery',
         ],
         answerDescription: 'Brachial artery',
+        choosenAnswer: '',
         answer: 'Brachial artery',
       ),
       QuestionModel(
@@ -217,6 +265,7 @@ List<TopicModel> QUESTIONS = [
           'Brachial artery',
         ],
         answerDescription: 'Brachial artery',
+        choosenAnswer: '',
         answer: 'Brachial artery',
       ),
       QuestionModel(
@@ -229,6 +278,7 @@ List<TopicModel> QUESTIONS = [
           'Brachial artery',
         ],
         answerDescription: 'Brachial artery',
+        choosenAnswer: '',
         answer: 'Brachial artery',
       ),
     ],
@@ -257,6 +307,7 @@ List<TopicModel> QUESTIONS = [
           'Zinc',
         ],
         answerDescription: 'Sodium',
+        choosenAnswer: '',
         answer: 'Sodium',
       ),
       QuestionModel(
@@ -268,6 +319,7 @@ List<TopicModel> QUESTIONS = [
           'Zinc',
         ],
         answerDescription: 'Sodium',
+        choosenAnswer: '',
         answer: 'Sodium',
       ),
       QuestionModel(
@@ -279,6 +331,7 @@ List<TopicModel> QUESTIONS = [
           'Zinc',
         ],
         answerDescription: 'Sodium',
+        choosenAnswer: '',
         answer: 'Sodium',
       ),
     ],
@@ -307,6 +360,7 @@ List<TopicModel> QUESTIONS = [
           'Glucose',
         ],
         answerDescription: 'LDL',
+        choosenAnswer: '',
         answer: 'LDL',
       ),
       QuestionModel(
@@ -318,6 +372,7 @@ List<TopicModel> QUESTIONS = [
           'Glucose',
         ],
         answerDescription: 'LDL',
+        choosenAnswer: '',
         answer: 'LDL',
       ),
       QuestionModel(
@@ -329,6 +384,7 @@ List<TopicModel> QUESTIONS = [
           'Glucose',
         ],
         answerDescription: 'LDL',
+        choosenAnswer: '',
         answer: 'LDL',
       ),
     ],
@@ -358,6 +414,7 @@ List<TopicModel> QUESTIONS = [
           'Brachial artery',
         ],
         answerDescription: 'Brachial artery',
+        choosenAnswer: '',
         answer: 'Brachial artery',
       ),
       QuestionModel(
@@ -370,6 +427,7 @@ List<TopicModel> QUESTIONS = [
           'Brachial artery',
         ],
         answerDescription: 'Brachial artery',
+        choosenAnswer: '',
         answer: 'Brachial artery',
       ),
       QuestionModel(
@@ -382,6 +440,7 @@ List<TopicModel> QUESTIONS = [
           'Brachial artery',
         ],
         answerDescription: 'Brachial artery',
+        choosenAnswer: '',
         answer: 'Brachial artery',
       ),
     ],
@@ -410,6 +469,7 @@ List<TopicModel> QUESTIONS = [
           'Zinc',
         ],
         answerDescription: 'Sodium',
+        choosenAnswer: '',
         answer: 'Sodium',
       ),
       QuestionModel(
@@ -421,6 +481,7 @@ List<TopicModel> QUESTIONS = [
           'Zinc',
         ],
         answerDescription: 'Sodium',
+        choosenAnswer: '',
         answer: 'Sodium',
       ),
       QuestionModel(
@@ -432,6 +493,7 @@ List<TopicModel> QUESTIONS = [
           'Zinc',
         ],
         answerDescription: 'Sodium',
+        choosenAnswer: '',
         answer: 'Sodium',
       ),
       QuestionModel(
@@ -443,6 +505,7 @@ List<TopicModel> QUESTIONS = [
           'Zinc',
         ],
         answerDescription: 'Sodium',
+        choosenAnswer: '',
         answer: 'Sodium',
       ),
       QuestionModel(
@@ -454,6 +517,7 @@ List<TopicModel> QUESTIONS = [
           'Zinc',
         ],
         answerDescription: 'Sodium',
+        choosenAnswer: '',
         answer: 'Sodium',
       ),
     ],
@@ -482,6 +546,7 @@ List<TopicModel> QUESTIONS = [
           'Glucose',
         ],
         answerDescription: 'LDL',
+        choosenAnswer: '',
         answer: 'LDL',
       ),
       QuestionModel(
@@ -493,6 +558,7 @@ List<TopicModel> QUESTIONS = [
           'Glucose',
         ],
         answerDescription: 'LDL',
+        choosenAnswer: '',
         answer: 'LDL',
       ),
       QuestionModel(
@@ -504,6 +570,7 @@ List<TopicModel> QUESTIONS = [
           'Glucose',
         ],
         answerDescription: 'LDL',
+        choosenAnswer: '',
         answer: 'LDL',
       ),
       QuestionModel(
@@ -515,6 +582,7 @@ List<TopicModel> QUESTIONS = [
           'Glucose',
         ],
         answerDescription: 'LDL',
+        choosenAnswer: '',
         answer: 'LDL',
       ),
     ],

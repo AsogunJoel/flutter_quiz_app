@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quiz_app/models/topic_model.dart';
-import 'package:flutter_quiz_app/pages/quizpage.dart';
+import 'package:flutter_quiz_app/pages/quiz_page.dart';
 import 'package:ionicons/ionicons.dart';
 
 import '../widgets/bottom_sheet_widget.dart';
@@ -16,11 +16,6 @@ class QuestionDescriptionPage extends StatefulWidget {
 
 class _QuestionDescriptionPageState extends State<QuestionDescriptionPage> {
   late TopicModel? topic;
-
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   void didChangeDependencies() {
@@ -135,7 +130,10 @@ class _QuestionDescriptionPageState extends State<QuestionDescriptionPage> {
               onPressed: () {
                 Navigator.of(context).push(
                   CupertinoPageRoute(
-                    builder: (context) => const QuizPage(),
+                    builder: (context) => const QuizQuestionsPage(),
+                    settings: RouteSettings(
+                      arguments: {'Questions': topic!.questionModel},
+                    ),
                   ),
                 );
               },
